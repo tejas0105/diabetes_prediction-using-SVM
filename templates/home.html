@@ -1,0 +1,164 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+Diabetes Detector
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='starter-template.css')}}">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="{{url_for('.static', filename='temp1.css')}}">
+
+
+{% endblock %}
+
+{% block content %}
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+
+        <div class="navbar-header">
+         <a class="navbar-brand" href="/">Diabetes Detector</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            {% if current_user.is_authenticated %}
+            <li><a href="{{url_for('logout')}}">Log Out</a></li>
+            <li><a href="{{url_for('dashboard')}}"> Dashboard</a></li>
+
+            {% else %}
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+            {% endif %}
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+ 
+
+<!-- About Section -->
+<div class="w3-container"  id="about">
+  <br>
+  <br>
+
+
+  <div class="slide" style="height: 50%;">
+    <img class="mySlides" src="static/diabetes1.jpg" style="height: 400px;  width:100%" >
+    <img class="mySlides" src="static/diabetes2.jpg" style="height: 400px;  width:100%" >
+    <img class="mySlides" src="static/diabetes3.jpg" style="height: 400px;  width:100%" >
+  </div>
+  
+  <script>
+  var myIndex = 0;
+  carousel();
+  
+  function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 2000); // Change image every 2 seconds
+  }
+  </script>
+
+<br><br>
+
+  <h3 class="w3-center">What are the symptoms of diabetes?</h3>
+  
+  <div class="w3-row-padding w3-center" style="margin-top:64px">
+    <div class="w3-quarter">
+      <img src="static/th.jpg" width="100%">
+      <p class="w3-large">Increased thirst and urination</p>
+      <p>Excessive thirst and increased urination are common diabetes signs and symptoms. When you have diabetes, excess glucose — a type of sugar — builds up in your blood.</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="static/br.jpg" width="100%">
+      <p class="w3-large">Blurred vision</p>
+      <p>Blurred vision refers to a lack of sharpness of vision resulting in the inability to see fine detail. Blurred vision may result from abnormalities such as nearsightedness,</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="static/so.jpg" width="100%" height="80%">
+      <p class="w3-large">Sores that do not heal</p>
+      <p>Sores that will not heal are a common problem. Open sores that will not heal are also known as wounds or skin ulcers.</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="static/wt.jpg" width="100%">
+      <p class="w3-large">Unexplained weight loss</p>
+      <p>Unexplained weight loss is a noticeable drop in body weight that occurs even if the person is not trying to lose weight. Unexplained weight loss can be a symptom of a serious illness, including cancer or diabetes.</p>
+    </div>
+  </div>
+</div>
+
+
+
+      </div>
+
+    </div><!-- /.container -->
+
+<!-- Team Section -->
+
+<div class="w3-container" style="padding:128px 16px" id="team">
+  <h3 class="w3-center">OUR TEAM</h3>
+
+  <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card">
+        <img src="static/profile.jpg"style="width:100%">
+        <div class="w3-container">
+          <h3>Tejas Pathak</h3>
+          <p class="w3-opacity">Leader</p>
+          <p>pathaktejsu18ce@student.mes.ac.in</p>
+          </div>
+      </div>
+    </div>
+
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card">
+        <img src="static/profile.jpg"style="width:100%">
+        <div class="w3-container">
+          <h3>Harshal Dhake</h3>
+          <p class="w3-opacity">Member</p>
+          <p>dhakeharsu18ce@student.mes.ac.in</p>
+          </div>
+      </div>
+    </div>
+
+     <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card">
+        <img src="static/profile.jpg" style="width:100%">
+        <div class="w3-container">
+          <h3>Shweta Dundale</h3>
+          <p class="w3-opacity">Member</p>
+          <p>dundaleshwsa18ce@student.mes.ac.in</p>
+          </div>
+      </div>
+    </div>
+
+     <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card">
+        <img src="static/profile.jpg" style="width:100%">
+        <div class="w3-container">
+          <h3>Neha Doke</h3>
+          <p class="w3-opacity">Member</p>
+          <p>nehadoke17@student.mes.ac.in</p>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+Message @~~
+
+
+
+
+    <div class="foot">
+      <p>Diabetes Prediction</p>
+    </div>
+{% endblock %}
